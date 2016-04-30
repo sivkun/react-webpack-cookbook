@@ -1,6 +1,6 @@
 I remember when I saw React the first time around the time it was announced I was skeptical. Particularly mixing some sort of HTML within your code seemed against good conventions. It just felt like a "bad idea"&reg;.
 
-我记得当我第一次看到 React 的时候是十分怀疑的，特别是把 HTML 揉进代码里违背了传统的那些约定，看起来像是一个 “坏注意”。
+我记得当我第一次看到 React 的时候是十分怀疑的，特别是把 HTML 揉进代码里违背了传统的那些约定，看起来像是一个 “坏主意”。
 
 But that's what React and similar approaches are doing. They challenge some of the conventions and replace them with something more palatable. Sometimes a bigger change in thinking is needed for you to move forward as a developer. That's what React did for me. It takes some powerful ideas from the world of functional programming and then builds on top of those.
 
@@ -173,7 +173,7 @@ Even though lack of two way binding might sound like a downer, it actually isn't
 
 If we wanted to model the code above using a ReactLink, we would end up with something like this:
 
-如果我们想使用 ReactLink的话，就想下面这样：
+如果我们想使用 ReactLink的话，就像下面这样：
 
 ```javascript
 // ReactLink 是一个插件，所以我们需要把它引入。
@@ -228,7 +228,7 @@ When you go beyond component level, that is where tools such as Selenium come in
 
 As you saw above, it is quite simple to throw together a couple of components and start building an app. You can get quite far with `props` and `state`. Just load up some data over AJAX at `getInitialState` and pass it around. After a while this all might start feeling a bit unwieldy. Why, for instance, my components should have to know something about how to communicate with the backend?
 
-就想你看到的，把一些组件放到一起就可以组成一个应用，你可以用 `props` 和 `state` 做的更多，或者在 `getInitialState` 中使用 AJAX 加载数据然后传给其他组件。这些使用一段时间之后可能会觉得有些笨拙，为什么？实践中，组件们需要知道如何和后端通讯。
+就像你看到的，把一些组件放到一起就可以组成一个应用，你可以用 `props` 和 `state` 做的更多，或者在 `getInitialState` 中使用 AJAX 加载数据然后传给其他组件。这些使用一段时间之后可能会觉得有些笨拙，为什么？实践中，组件们需要知道如何和后端通讯。
 
 This is where Flux architecture and its variants come in. I will start by describing [Reflux](https://github.com/spoike/refluxjs), a simplified variant of it. You can then work up to [understanding Flux](http://facebook.github.io/flux/docs/overview.html) in fuller detail once you understand this simplified setup.
 
@@ -244,7 +244,7 @@ In case of our Todo example we would define basic `TodoActions` like create, upd
 
 As development of Reflux is quite in flux I won't give you a full example in this case. I just wanted to illustrate one possible way to deal with scaling up from bare React. You should explore various options and deepen your understanding of possible architectures. The ideas are quite similar but the devil is in the details as always. There are always drawbacks to consider.
 
-Reflux 的开发和 Flux 差不多，我就不在这里详细讲述了，我只是想说明如何处理从纯 React 扩大的一种可能的方式。你需要去浏览一些相关看法，然后深入理解那些架构。那些想法都差不多，就是细节不太一样，都有各自的一些缺点有待考略。
+Reflux 的开发和 Flux 差不多，我就不在这里详细讲述了，我只是想说明如何处理从纯 React 扩大的一种可能的方式。你需要去浏览一些相关看法，然后深入理解那些架构。那些想法都差不多，就是细节不太一样，都有各自的一些缺点有待考虑。
 
 ### 同构渲染
 
