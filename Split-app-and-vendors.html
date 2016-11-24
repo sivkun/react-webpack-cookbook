@@ -1,659 +1,604 @@
+
 <!DOCTYPE HTML>
-<html lang="zh-cn" >
-    
+<html lang="en" >
     <head>
-        
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>分离应用和第三方 | React Webpack 小书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Split app and vendors · React Webpack cookbook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.1.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
-        <meta name="HandheldFriendly" content="true"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
         
+    
     <link rel="stylesheet" href="gitbook/style.css">
+
     
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
     
 
         
     
     
-    <link rel="next" href="./Multiple-entry-points.html" />
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Multiple-entry-points.html" />
     
     
-    <link rel="prev" href="./Single-bundle.html" />
+    <link rel="prev" href="Single-bundle.html" />
     
 
-        
     </head>
     <body>
         
+<div class="book">
+    <div class="book-summary">
         
-    <div class="book" data-level="4.3" data-basepath="." data-revision="Fri Nov 27 2015 10:25:04 GMT+0800 (CST)">
-    
-
-<div class="book-summary">
-    <div class="book-search">
-        <input type="text" placeholder="输入并搜索" class="form-control" />
-    </div>
-    <ul class="summary">
-        
-        
-        
-        
-
-        
-
-        
-    
-        <li class="chapter " data-level="0" data-path="index.html">
             
-                
-                    <a href="./index.html">
-                        <i class="fa fa-check"></i>
-                        
-                        介绍
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1" data-path="Introduction-to-Webpack.html">
-            
-                
-                    <a href="./Introduction-to-Webpack.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.</b>
-                        
-                        介绍 Webpack
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.1" data-path="Getting-started.html">
-            
-                
-                    <a href="./Getting-started.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.1.</b>
-                        
-                        第一步
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="Running-a-workflow.html">
-            
-                
-                    <a href="./Running-a-workflow.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.2.</b>
-                        
-                        开始工作流
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="Automatic-browser-refresh.html">
-            
-                
-                    <a href="./Automatic-browser-refresh.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.3.</b>
-                        
-                        浏览器自动刷新
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="Requiring-files.html">
-            
-                
-                    <a href="./Requiring-files.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.4.</b>
-                        
-                        引入文件
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="2" data-path="Introduction-to-React-JS.html">
-            
-                
-                    <a href="./Introduction-to-React-JS.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.</b>
-                        
-                        React JS
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1" data-path="Configuring-react-js.html">
-            
-                
-                    <a href="./Configuring-react-js.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.1.</b>
-                        
-                        配置 React JS
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2" data-path="Optimizing-rebundling.html">
-            
-                
-                    <a href="./Optimizing-rebundling.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.2.</b>
-                        
-                        优化重合并
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3" data-path="Type-checking-with-flow.html">
-            
-                
-                    <a href="./Type-checking-with-flow.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.3.</b>
-                        
-                        Flow
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3" data-path="CSS-Fonts-Images.html">
-            
-            <span><b>3.</b> CSS, Fonts and Images</span>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1" data-path="Loading-CSS.html">
-            
-                
-                    <a href="./Loading-CSS.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.1.</b>
-                        
-                        加载 CSS
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3.2" data-path="Automatic-CSS-refresh.html">
-            
-                
-                    <a href="./Automatic-CSS-refresh.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.2.</b>
-                        
-                        自动刷新 CSS
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3.3" data-path="Loading-LESS-or-SASS.html">
-            
-                
-                    <a href="./Loading-LESS-or-SASS.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.3.</b>
-                        
-                        加载 LESS 和 SASS
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3.4" data-path="Inlining-images.html">
-            
-                
-                    <a href="./Inlining-images.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.4.</b>
-                        
-                        内联 images
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3.5" data-path="Inlining-fonts.html">
-            
-                
-                    <a href="./Inlining-fonts.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.5.</b>
-                        
-                        内联 fonts
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="4" data-path="Deployment-strategies.html">
-            
-            <span><b>4.</b> 部署策略</span>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1" data-path="Structuring-configuration.html">
-            
-                
-                    <a href="./Structuring-configuration.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.1.</b>
-                        
-                        发布配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4.2" data-path="Single-bundle.html">
-            
-                
-                    <a href="./Single-bundle.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.2.</b>
-                        
-                        合并成单文件
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter active" data-level="4.3" data-path="Split-app-and-vendors.html">
-            
-                
-                    <a href="./Split-app-and-vendors.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.3.</b>
-                        
-                        分离应用和第三方
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4.4" data-path="Multiple-entry-points.html">
-            
-                
-                    <a href="./Multiple-entry-points.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.4.</b>
-                        
-                        多重入口
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4.5" data-path="Lazy-loaded-entry-points.html">
-            
-                
-                    <a href="./Lazy-loaded-entry-points.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.5.</b>
-                        
-                        懒加载入口文件
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4.6" data-path="Isomorphic-app.html">
-            
-                
-                    <a href="./Isomorphic-app.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.6.</b>
-                        
-                        同构渲染
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="5" data-path="Wing-It-Like-a-Pro.html">
-            
-                
-                    <a href="./Wing-It-Like-a-Pro.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                        进阶
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="5.1" data-path="Optimizing-development.html">
-            
-                
-                    <a href="./Optimizing-development.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.1.</b>
-                        
-                        优化开发
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.2" data-path="Hot-loading-components.html">
-            
-                
-                    <a href="./Hot-loading-components.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.2.</b>
-                        
-                        热加载组件
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.3" data-path="JavaScript-next.html">
-            
-            <span><b>5.3.</b> 使用下一代 JavaScript</span>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.4" data-path="Optimizing-caching.html">
-            
-                
-                    <a href="./Optimizing-caching.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.4.</b>
-                        
-                        优化缓存
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.5" data-path="Matchers.html">
-            
-                
-                    <a href="./Matchers.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.5.</b>
-                        
-                        匹配器
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.6" data-path="Lazy-loading-entry-points.html">
-            
-            <span><b>5.6.</b> 懒加载入口</span>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.7" data-path="Creating-a-common-bundle.html">
-            
-            <span><b>5.7.</b> 创建一个复用代码</span>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.8" data-path="Understanding-chunks.html">
-            
-                
-                    <a href="./Understanding-chunks.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.8.</b>
-                        
-                        理解 Chunks
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5.9" data-path="Authoring-libraries.html">
-            
-                
-                    <a href="./Authoring-libraries.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.9.</b>
-                        
-                        创建库
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-
-        
-        <li class="divider"></li>
-        <li>
-            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-                本书使用 GitBook 发布
-            </a>
-        </li>
-        
-    </ul>
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
 </div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Introduction-to-Webpack.html">
+            
+                <a href="Introduction-to-Webpack.html">
+            
+                    
+                    Webpack
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Getting-started.html">
+            
+                <a href="Getting-started.html">
+            
+                    
+                    Getting started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="Running-a-workflow.html">
+            
+                <a href="Running-a-workflow.html">
+            
+                    
+                    Running a workflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="Automatic-browser-refresh.html">
+            
+                <a href="Automatic-browser-refresh.html">
+            
+                    
+                    Automatic browser refresh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="Requiring-files.html">
+            
+                <a href="Requiring-files.html">
+            
+                    
+                    Requiring files
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Introduction-to-React-JS.html">
+            
+                <a href="Introduction-to-React-JS.html">
+            
+                    
+                    React JS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="Configuring-react-js.html">
+            
+                <a href="Configuring-react-js.html">
+            
+                    
+                    Configuring React JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="Optimizing-rebundling.html">
+            
+                <a href="Optimizing-rebundling.html">
+            
+                    
+                    Optimizing rebundling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="Type-checking-with-flow.html">
+            
+                <a href="Type-checking-with-flow.html">
+            
+                    
+                    Flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="CSS-Fonts-Images.md">
+            
+                <span>
+            
+                    
+                    CSS, Fonts and Images
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="Loading-CSS.html">
+            
+                <a href="Loading-CSS.html">
+            
+                    
+                    Loading CSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="Automatic-CSS-refresh.html">
+            
+                <a href="Automatic-CSS-refresh.html">
+            
+                    
+                    Automatic CSS refresh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="Loading-LESS-or-SASS.html">
+            
+                <a href="Loading-LESS-or-SASS.html">
+            
+                    
+                    Loading LESS or SASS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="Inlining-images.html">
+            
+                <a href="Inlining-images.html">
+            
+                    
+                    Inlining images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="Inlining-fonts.html">
+            
+                <a href="Inlining-fonts.html">
+            
+                    
+                    Inlining fonts
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Deployment-strategies.md">
+            
+                <span>
+            
+                    
+                    Deployment strategies
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="Structuring-configuration.html">
+            
+                <a href="Structuring-configuration.html">
+            
+                    
+                    Deploy to production
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="Single-bundle.html">
+            
+                <a href="Single-bundle.html">
+            
+                    
+                    Single bundle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.3" data-path="Split-app-and-vendors.html">
+            
+                <a href="Split-app-and-vendors.html">
+            
+                    
+                    Split app and vendors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="Multiple-entry-points.html">
+            
+                <a href="Multiple-entry-points.html">
+            
+                    
+                    Multiple entry points
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="Lazy-loaded-entry-points.html">
+            
+                <a href="Lazy-loaded-entry-points.html">
+            
+                    
+                    Lazy loaded entry points
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="Isomorphic-app.html">
+            
+                <a href="Isomorphic-app.html">
+            
+                    
+                    Isomorphic app
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Wing-It-Like-a-Pro.html">
+            
+                <a href="Wing-It-Like-a-Pro.html">
+            
+                    
+                    Wing It Like A Pro
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="Optimizing-development.html">
+            
+                <a href="Optimizing-development.html">
+            
+                    
+                    Optimizing development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="Hot-loading-components.html">
+            
+                <a href="Hot-loading-components.html">
+            
+                    
+                    Hot loading components
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="Javascript-next.html">
+            
+                <a href="Javascript-next.html">
+            
+                    
+                    Go JavaScript next
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="Optimizing-caching.html">
+            
+                <a href="Optimizing-caching.html">
+            
+                    
+                    Optimizing caching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="Matchers.html">
+            
+                <a href="Matchers.html">
+            
+                    
+                    Matchers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="Lazy-loading-entry-points.md">
+            
+                <span>
+            
+                    
+                    Lazy loading entry points
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="Creating-a-common-bundle.md">
+            
+                <span>
+            
+                    
+                    Creating a common chunk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="Understanding-chunks.html">
+            
+                <a href="Understanding-chunks.html">
+            
+                    
+                    Chunks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="Authoring-libraries.html">
+            
+                <a href="Authoring-libraries.html">
+            
+                    
+                    Authoring libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
 
     <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header">
-    <!-- Actions Left -->
-    <a href="#" class="btn pull-left toggle-summary" aria-label="目录"><i class="fa fa-align-justify"></i></a>
-    <a href="#" class="btn pull-left toggle-search" aria-label="搜索"><i class="fa fa-search"></i></a>
-    
-    <div id="font-settings-wrapper" class="dropdown pull-left">
-        <a href="#" class="btn toggle-dropdown" aria-label="字体设置"><i class="fa fa-font"></i>
-        </a>
-        <div class="dropdown-menu font-settings">
-    <div class="dropdown-caret">
-        <span class="caret-outer"></span>
-        <span class="caret-inner"></span>
-    </div>
+        
+            <div class="body-inner">
+                
+                    
 
-    <div class="buttons">
-        <button type="button" id="reduce-font-size" class="button size-2">A</button>
-        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
-    </div>
-
-    <div class="buttons font-family-list">
-        <button type="button" data-font="0" class="button">衬线体</button>
-        <button type="button" data-font="1" class="button">无衬线体</button>
-    </div>
-
-    <div class="buttons color-theme-list">
-        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">白色</button>
-        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">棕褐色</button>
-        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">夜间</button>
-    </div>
-</div>
-
-    </div>
-
-    <!-- Actions Right -->
+<div class="book-header" role="navigation">
     
-    <div class="dropdown pull-right">
-        <a href="#" class="btn toggle-dropdown" aria-label="分享"><i class="fa fa-share-alt"></i>
-        </a>
-        <div class="dropdown-menu font-settings dropdown-left">
-            <div class="dropdown-caret">
-                <span class="caret-outer"></span>
-                <span class="caret-inner"></span>
-            </div>
-            <div class="buttons">
-                <button type="button" data-sharing="twitter" class="button">
-                    分享到 Twitter
-                </button>
-                <button type="button" data-sharing="google-plus" class="button">
-                    分享到 Google
-                </button>
-                <button type="button" data-sharing="facebook" class="button">
-                    分享到 Facebook
-                </button>
-                <button type="button" data-sharing="weibo" class="button">
-                    分享到 Weibo
-                </button>
-                <button type="button" data-sharing="instapaper" class="button">
-                    分享到 Instapaper
-                </button>
-            </div>
-        </div>
-    </div>
-    
-
-    
-    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-    
-    
-    
-
 
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="./" >React Webpack 小书</a>
+        <a href="." >Split app and vendors</a>
     </h1>
 </div>
 
-            <div class="page-wrapper" tabindex="-1">
-                <div class="page-inner">
-                
-                
-                    <section class="normal" id="section-">
-                    
-                        <p>When your application is depending on other libraries, especially large ones like React JS, you should consider splitting those dependencies into its own vendors bundle. This will allow you to do updates to your application, without requiring the users to download the vendors bundle again. Use this strategy when:</p>
-<p>&#x5F53;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x4F9D;&#x8D56;&#x5176;&#x4ED6;&#x5E93;&#x5C24;&#x5176;&#x662F;&#x50CF; React JS &#x8FD9;&#x79CD;&#x5927;&#x578B;&#x5E93;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8003;&#x8651;&#x628A;&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#x5206;&#x79BB;&#x51FA;&#x53BB;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x591F;&#x8BA9;&#x7528;&#x6237;&#x5728;&#x4F60;&#x66F4;&#x65B0;&#x5E94;&#x7528;&#x4E4B;&#x540E;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x6B21;&#x4E0B;&#x8F7D;&#x7B2C;&#x4E09;&#x65B9;&#x6587;&#x4EF6;&#x3002;&#x5F53;&#x6EE1;&#x8DB3;&#x4E0B;&#x9762;&#x51E0;&#x4E2A;&#x60C5;&#x51B5;&#x7684;&#x65F6;&#x5019;&#x4F60;&#x5C31;&#x9700;&#x8981;&#x8FD9;&#x4E48;&#x505A;&#x4E86;&#xFF1A;</p>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>When your application is depending on other libraries, especially large ones like React JS, you should consider splitting those dependencies into its own vendors bundle. This will allow you to do updates to your application, without requiring the users to download the vendors bundle again. Use this strategy when:</p>
 <ul>
 <li>When your vendors reaches a certain percentage of your total app bundle. Like 20% and up </li>
 <li>You will do quite a few updates to your application</li>
 <li>You are not too concerned about perceived initial loading time, but you do have returning users and care about optimizing the experience when you do updates to the application</li>
 <li>Users are on mobile</li>
-</ul>
-<ul>
-<li>&#x5F53;&#x4F60;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x4F53;&#x79EF;&#x8FBE;&#x5230;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x7684; 20% &#x6216;&#x8005;&#x66F4;&#x9AD8;&#x7684;&#x65F6;&#x5019;&#x3002;</li>
-<li>&#x66F4;&#x65B0;&#x5E94;&#x7528;&#x7684;&#x65F6;&#x5019;&#x53EA;&#x4F1A;&#x66F4;&#x65B0;&#x5F88;&#x5C0F;&#x7684;&#x4E00;&#x90E8;&#x5206;</li>
-<li>&#x4F60;&#x6CA1;&#x6709;&#x90A3;&#x4E48;&#x5173;&#x6CE8;&#x521D;&#x59CB;&#x52A0;&#x8F7D;&#x65F6;&#x95F4;&#xFF0C;&#x4E0D;&#x8FC7;&#x5173;&#x6CE8;&#x4F18;&#x5316;&#x90A3;&#x4E9B;&#x56DE;&#x8BBF;&#x7528;&#x6237;&#x5728;&#x4F60;&#x66F4;&#x65B0;&#x5E94;&#x7528;&#x4E4B;&#x540E;&#x7684;&#x4F53;&#x9A8C;&#x3002;</li>
-<li>&#x6709;&#x624B;&#x673A;&#x7528;&#x6237;&#x3002;</li>
 </ul>
 <p><em>webpack.production.config.js</em></p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
@@ -666,8 +611,6 @@
 
     <span class="hljs-comment">// Since react is installed as a node module, node_modules/react,</span>
     <span class="hljs-comment">// we can point to it directly, just like require(&apos;react&apos;);</span>
-    <span class="hljs-comment">// &#x5F53; React &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A; node &#x6A21;&#x5757;&#x5B89;&#x88C5;&#x7684;&#x65F6;&#x5019;&#xFF0C;</span>
-    <span class="hljs-comment">// &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6307;&#x5411;&#x5B83;&#xFF0C;&#x5C31;&#x6BD4;&#x5982; require(&apos;react&apos;)</span>
     vendors: [<span class="hljs-string">&apos;react&apos;</span>]
   },
   output: {
@@ -689,39 +632,85 @@
 <span class="hljs-built_in">module</span>.exports = config;
 </code></pre>
 <p>This configuration will create two files in the <code>dist/</code> folder. <strong>app.js</strong> and <strong>vendors.js</strong>.</p>
-<p>&#x8FD9;&#x4E9B;&#x914D;&#x7F6E;&#x4F1A;&#x5728; <code>dist/</code> &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;<strong>app.js</strong> &#x548C; <strong>vendors.js</strong>&#x3002;</p>
-<h4 id="%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%8B%E6%83%85%EF%BC%81">&#x91CD;&#x8981;&#x7684;&#x4E8B;&#x60C5;&#xFF01;</h4>
+<h4 id="important">Important!</h4>
 <p>Remember to add both files to your HTML file, or you will get the error: <code>Uncaught ReferenceError: webpackJsonp is not defined</code>.</p>
-<p>&#x8BB0;&#x4F4F;&#x8981;&#x628A;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x90FD;&#x52A0;&#x5165;&#x5230;&#x4F60;&#x7684; HTML &#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x4E0D;&#x7136;&#x4F60;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#xFF1A;<code>Uncaught ReferenceError: webpackJsonp is not defined</code>&#x3002;</p>
 
-                    
-                    </section>
-                
-                
-                </div>
-            </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
         </div>
-
-        
-        <a href="./Single-bundle.html" class="navigation navigation-prev " aria-label="Previous page: 合并成单文件"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="./Multiple-entry-points.html" class="navigation navigation-next " aria-label="Next page: 多重入口"><i class="fa fa-angle-right"></i></a>
-        
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
     </div>
 </div>
 
-        
-<script src="gitbook/app.js"></script>
+                        </div>
+                    </div>
+                
+            </div>
 
-<script>
-require(["gitbook"], function(gitbook) {
-    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
-    gitbook.start(config);
-});
-</script>
+            
+                
+                <a href="Single-bundle.html" class="navigation navigation-prev " aria-label="Previous page: Single bundle">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Multiple-entry-points.html" class="navigation navigation-next " aria-label="Next page: Multiple entry points">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Split app and vendors","level":"1.5.3","depth":2,"next":{"title":"Multiple entry points","level":"1.5.4","depth":2,"path":"Multiple-entry-points.md","ref":"Multiple-entry-points.md","articles":[]},"previous":{"title":"Single bundle","level":"1.5.2","depth":2,"path":"Single-bundle.md","ref":"Single-bundle.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"React Webpack cookbook","language":"en","gitbook":">=2.0.0","description":"Recipes for solving common Webpack problems"},"file":{"path":"Split-app-and-vendors.md","mtime":"2016-11-24T08:47:49.638Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-24T09:46:47.224Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
 
         
-    </body>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
     
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
 </html>
+

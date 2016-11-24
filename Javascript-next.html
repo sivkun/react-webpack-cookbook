@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · React Webpack cookbook</title>
+        <title>Go JavaScript next · React Webpack cookbook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Introduction-to-Webpack.html" />
+    <link rel="next" href="Optimizing-caching.html" />
     
+    
+    <link rel="prev" href="Hot-loading-components.html" />
     
 
     </head>
@@ -87,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -450,7 +452,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="Javascript-next.html">
+        <li class="chapter active" data-level="1.6.3" data-path="Javascript-next.html">
             
                 <a href="Javascript-next.html">
             
@@ -576,7 +578,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Go JavaScript next</a>
     </h1>
 </div>
 
@@ -591,21 +593,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <blockquote>
-<p><a href="https://fakefish.github.io/react-webpack-cookbook/" target="_blank">zh-cn</a></p>
-<p>In case you want to contribute, please create a PR against <a href="https://github.com/christianalfoni/react-webpack-cookbook" target="_blank">the main repo</a> or contact us through <a href="https://github.com/christianalfoni/react-webpack-cookbook/issues" target="_blank">the issue tracker</a>.</p>
-</blockquote>
-<p>The purpose of this cookbook is to guide you into the world of React and Webpack. Both are powerful technologies and when used together, frontend development becomes a joy.</p>
-<p>The cookbook should have something to offer for all skill levels. If you are interested in just React, skip the Webpack part and vice versa. A more tutorial oriented approach is available in the form of <a href="http://survivejs.com/" target="_blank">SurviveJS - Webpack and React</a> book.</p>
-<h2 id="react">React</h2>
-<p>React is a library that greatly simplifies component development. Once you understand its basics, you can build your own stack around it. This is in contrast to frameworks, such as Angular, that try to offer everything and a kitchen sink.</p>
-<p><a href="http://facebook.github.io/react/docs/tutorial.html" target="_blank">The official tutorial</a> is a good starting point if you just want a quick look at the technology.</p>
-<p>Perhaps the most intriguing thing about React is that it keeps on challenging traditional web development. It allows us to rethink concepts such as separation of concern. It will also influence on mobile development in the form of <a href="http://facebook.github.io/react-native" target="_blank">React Native</a>. React Native allow native level performance while making it possible to develop apps in a tight realtime preview loop using JavaScript.</p>
-<h2 id="webpack">Webpack</h2>
-<p>Webpack operates on a lower level. It is a module bundler. In essence it is something that you use to build your project into deliverable components (HTML, CSS, JS). The nice thing about Webpack is that once you initially configure it, it deals with the nasty details for you. This allows you to mix various technologies within your project without a headache.</p>
-<p>If you are completely new to Webpack and want to go through a good introduction, check out <a href="https://github.com/petehunt/webpack-howto" target="_blank">Pete Hunt&apos;s guide</a>. You&apos;ll find the basics there. This guide merely complements his.</p>
-<h2 id="written-by">Written by</h2>
-<p><a href="http://www.christianalfoni.com/" target="_blank">Christian Alfoni</a> and <a href="http://survivejs.com/" target="_blank">Juho Veps&#xE4;l&#xE4;inen</a>.</p>
+                                <h2 id="classes">Classes</h2>
+<p>As of React JS 0.13 you will be able to define components as classes.</p>
+<pre><code class="lang-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>() {
+    <span class="hljs-keyword">this</span>.state = {message: <span class="hljs-string">&apos;Hello world&apos;</span>};
+  }
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{this.state.message}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+    );
+  }
+}
+</code></pre>
+<p>This gives you a very short and nice syntax for defining components. A drawback with using classes though is the lack of mixins. That said, you are not totally lost. Lets us see how we could still use the important <strong>PureRenderMixin</strong>.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react/addons&apos;</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Component</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  shouldComponentUpdate() {
+    <span class="hljs-keyword">return</span> React.addons.PureRenderMixin.shouldComponentUpdate.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>() {
+    <span class="hljs-keyword">this</span>.state = {message: <span class="hljs-string">&apos;Hello world&apos;</span>};
+  }
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{this.state.message}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+    );
+  }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -633,8 +653,12 @@
 
             
                 
+                <a href="Hot-loading-components.html" class="navigation navigation-prev " aria-label="Previous page: Hot loading components">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="Introduction-to-Webpack.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Webpack">
+                
+                <a href="Optimizing-caching.html" class="navigation navigation-next " aria-label="Next page: Optimizing caching">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -645,7 +669,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Webpack","level":"1.2","depth":1,"path":"Introduction-to-Webpack.md","ref":"Introduction-to-Webpack.md","articles":[{"title":"Getting started","level":"1.2.1","depth":2,"path":"Getting-started.md","ref":"Getting-started.md","articles":[]},{"title":"Running a workflow","level":"1.2.2","depth":2,"path":"Running-a-workflow.md","ref":"Running-a-workflow.md","articles":[]},{"title":"Automatic browser refresh","level":"1.2.3","depth":2,"path":"Automatic-browser-refresh.md","ref":"Automatic-browser-refresh.md","articles":[]},{"title":"Requiring files","level":"1.2.4","depth":2,"path":"Requiring-files.md","ref":"Requiring-files.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"React Webpack cookbook","language":"en","gitbook":">=2.0.0","description":"Recipes for solving common Webpack problems"},"file":{"path":"README.md","mtime":"2016-11-24T08:47:49.634Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-24T09:46:47.224Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Go JavaScript next","level":"1.6.3","depth":2,"next":{"title":"Optimizing caching","level":"1.6.4","depth":2,"path":"Optimizing-caching.md","ref":"Optimizing-caching.md","articles":[]},"previous":{"title":"Hot loading components","level":"1.6.2","depth":2,"path":"Hot-loading-components.md","ref":"Hot-loading-components.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"React Webpack cookbook","language":"en","gitbook":">=2.0.0","description":"Recipes for solving common Webpack problems"},"file":{"path":"Javascript-next.md","mtime":"2016-11-24T08:47:49.629Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-24T09:46:47.224Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
